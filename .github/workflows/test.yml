@@ -1,0 +1,43 @@
+# Tests every pull request and branch, so a problem shows up before it reaches
+# main (where release.yml runs the same tests, then publishes the APK).
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+    paths-ignore:
+      - "docs/**"
+      - "**.md"
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm test
+
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The version is the commit count, so it needs the whole history
+          fetch-depth: 0
+      # Gradle, the Kotlin compiler and the libraries, kept between runs: fewer
+      # downloads from GitHub releases, which sometimes time out
+      - uses: actions/cache@v4
+        with:
+          path: .gradle-cache
+          key: gradle-${{ hashFiles('android/**/*.gradle', 'android/gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: gradle-
+
+      - name: Android unit tests and a debug build
+        env:
+          GRADLE_CACHE: ${{ github.workspace }}/.gradle-cache
+        run: docker/build-apk.sh

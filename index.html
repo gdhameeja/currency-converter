@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>Converter</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header id="top">
+      <button id="status" class="status" aria-label="Rate details">
+        <span class="dot"></span><span id="status-text">Loading rates…</span><span id="update-dot" class="update-dot" hidden></span>
+      </button>
+      <div class="top-actions">
+        <button id="refresh" class="icon-btn" aria-label="Refresh rates">⟳</button>
+        <button id="edit" class="text-btn">Edit</button>
+      </div>
+    </header>
+
+    <main id="list" aria-live="polite"></main>
+
+    <div id="add-row">
+      <button id="add" class="add-btn">+ Add currency</button>
+    </div>
+
+    <section id="keypad" aria-label="Keypad">
+      <button data-k="C" class="k fn">C</button>
+      <button data-k="⌫" class="k fn" aria-label="Backspace">⌫</button>
+      <button data-k="%" class="k fn">%</button>
+      <button data-k="÷" class="k op">÷</button>
+      <button data-k="7" class="k">7</button>
+      <button data-k="8" class="k">8</button>
+      <button data-k="9" class="k">9</button>
+      <button data-k="×" class="k op">×</button>
+      <button data-k="4" class="k">4</button>
+      <button data-k="5" class="k">5</button>
+      <button data-k="6" class="k">6</button>
+      <button data-k="−" class="k op">−</button>
+      <button data-k="1" class="k">1</button>
+      <button data-k="2" class="k">2</button>
+      <button data-k="3" class="k">3</button>
+      <button data-k="+" class="k op">+</button>
+      <button data-k="00" class="k">00</button>
+      <button data-k="0" class="k">0</button>
+      <button data-k="." class="k" id="decimal-key">.</button>
+      <button data-k="=" class="k eq">=</button>
+    </section>
+  </div>
+
+  <!-- Add currencies -->
+  <div id="picker" class="screen" hidden>
+    <div class="picker-head">
+      <button id="picker-close" class="icon-btn" aria-label="Close">←</button>
+      <input id="search" type="search" placeholder="Search currency, code or country" autocomplete="off" spellcheck="false">
+    </div>
+    <div id="picker-list"></div>
+  </div>
+
+  <!-- Bottom sheet: rate sources, a currency's details, app updates -->
+  <div id="sheet-backdrop" hidden></div>
+  <div id="sheet" class="sheet" hidden role="dialog"></div>
+
+  <div id="toast" hidden></div>
+
+  <script src="currencies.js"></script>
+  <script src="rates.js"></script>
+  <script src="calc.js"></script>
+  <script src="format.js"></script>
+  <script src="native.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
