@@ -43,7 +43,7 @@ Rates are kept on the phone in three ways, newest valid copy wins:
 
 1. Every successful fetch while the app is open (Coinbase every minute, the daily sources every hour).
 2. A background job (`RatesWorker.java`, WorkManager) that fetches all three
-   roughly every hour whenever the phone has internet, even with the app closed.
+   about every 12 hours whenever the phone has internet, even with the app closed.
    Android may stretch this to save battery.
 3. A snapshot bundled into each APK at build time, so a fresh install works with no internet.
 

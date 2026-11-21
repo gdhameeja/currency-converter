@@ -18,11 +18,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Fetches the rates about once an hour while the phone has internet, even
+ * Fetches the rates about every 12 hours while the phone has internet, even
  * with the app closed, so the rates you see offline are the last ones the
  * phone could get rather than the last ones you happened to open the app for.
  * Android may stretch the interval to save battery (Doze); WorkManager keeps
- * the schedule across reboots.
+ * the schedule across reboots. UPDATE (not KEEP) so a changed interval
+ * reaches phones that already have the old schedule.
  */
 public class RatesWorker extends Worker {
     private static final String TAG = "RatesWorker";
@@ -35,10 +36,10 @@ public class RatesWorker extends Worker {
 
     static void schedule(Context context) {
         Constraints constraints = new Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build();
-        PeriodicWorkRequest request = new PeriodicWorkRequest.Builder(RatesWorker.class, 1, TimeUnit.HOURS)
+        PeriodicWorkRequest request = new PeriodicWorkRequest.Builder(RatesWorker.class, 12, TimeUnit.HOURS)
             .setConstraints(constraints)
             .build();
-        WorkManager.getInstance(context).enqueueUniquePeriodicWork(WORK_NAME, ExistingPeriodicWorkPolicy.KEEP, request);
+        WorkManager.getInstance(context).enqueueUniquePeriodicWork(WORK_NAME, ExistingPeriodicWorkPolicy.UPDATE, request);
     }
 
     @NonNull

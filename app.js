@@ -315,7 +315,7 @@ function showStatus() {
     <p class="muted small">Mid-market rates (what banks trade at, before their markup). Each rate
     is checked against the other sources and used only when at least two agree; the
     freshest agreeing one wins. Without internet, the last rates fetched are used: the
-    app also refreshes them in the background every hour or so.</p>
+    app also refreshes them in the background about every 12 hours.</p>
     ${disputed.length ? `<p class="warn-text">⚠ Sources disagree on ${disputed.join(", ")}. Long-press the currency to compare.</p>` : ""}
     ${daily.length ? `<p class="muted small">${daily.join(", ")}: no live rate that agrees, using the daily rate.</p>` : ""}
     <div class="sheet-actions"><button class="btn" id="sh-refresh">Refresh now</button></div>
