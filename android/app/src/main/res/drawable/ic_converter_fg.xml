@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Two opposite arrows: one currency into another and back. Kept inside the 66dp safe zone. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp" android:height="108dp"
     android:viewportWidth="108" android:viewportHeight="108">
-    <path android:strokeColor="#FFFFFF" android:strokeWidth="6" android:strokeLineCap="round" android:strokeLineJoin="round"
-        android:pathData="M34,44 L72,44 M62,34 L72,44 L62,54" />
-    <path android:strokeColor="#FFFFFF" android:strokeWidth="6" android:strokeLineCap="round" android:strokeLineJoin="round"
-        android:pathData="M74,66 L36,66 M46,56 L36,66 L46,76" />
+    <!-- A smiling coin between two exchange arrows; everything inside the 66dp safe zone -->
+    <path android:pathData="M30.5,45 A25,25 0 0 1 67,30.5" android:strokeColor="#FFFFFF" android:strokeWidth="4.5"
+        android:strokeLineCap="round" android:strokeLineJoin="round" />
+    <path android:pathData="M61.5,25.5 L68.5,31 L61,35.5" android:strokeColor="#FFFFFF" android:strokeWidth="4.5"
+        android:strokeLineCap="round" android:strokeLineJoin="round" />
+    <path android:pathData="M77.5,63 A25,25 0 0 1 41,77.5" android:strokeColor="#FFFFFF" android:strokeWidth="4.5"
+        android:strokeLineCap="round" android:strokeLineJoin="round" />
+    <path android:pathData="M46.5,82.5 L39.5,77 L47,72.5" android:strokeColor="#FFFFFF" android:strokeWidth="4.5"
+        android:strokeLineCap="round" android:strokeLineJoin="round" />
+    <path android:pathData="M34.5,56.5 a19.5,19.5 0 1,0 39.0,0 a19.5,19.5 0 1,0 -39.0,0 Z" android:fillColor="#E9A23B" />
+    <path android:pathData="M34.5,54 a19.5,19.5 0 1,0 39.0,0 a19.5,19.5 0 1,0 -39.0,0 Z" android:fillColor="#FFCB52" />
+    <path android:pathData="M39,54 a15,15 0 1,0 30,0 a15,15 0 1,0 -30,0 Z" android:strokeColor="#F4AE38" android:strokeWidth="2"
+        android:strokeLineCap="round" android:strokeLineJoin="round" />
+    <path android:pathData="M42,47 A13,13 0 0 1 49,40.5" android:strokeColor="#FFF1C2" android:strokeWidth="2.6"
+        android:strokeLineCap="round" android:strokeLineJoin="round" />
+    <path android:pathData="M44.9,53 a2.6,2.6 0 1,0 5.2,0 a2.6,2.6 0 1,0 -5.2,0 Z" android:fillColor="#5A3B2A" />
+    <path android:pathData="M57.9,53 a2.6,2.6 0 1,0 5.2,0 a2.6,2.6 0 1,0 -5.2,0 Z" android:fillColor="#5A3B2A" />
+    <path android:pathData="M47.5,52.1 a0.9,0.9 0 1,0 1.8,0 a0.9,0.9 0 1,0 -1.8,0 Z" android:fillColor="#FFFFFF" />
+    <path android:pathData="M60.5,52.1 a0.9,0.9 0 1,0 1.8,0 a0.9,0.9 0 1,0 -1.8,0 Z" android:fillColor="#FFFFFF" />
+    <path android:pathData="M40.5,58.5 a3,2 0 1,0 6,0 a3,2 0 1,0 -6,0 Z" android:fillColor="#FF8C8C" android:fillAlpha="0.75" />
+    <path android:pathData="M61.5,58.5 a3,2 0 1,0 6,0 a3,2 0 1,0 -6,0 Z" android:fillColor="#FF8C8C" android:fillAlpha="0.75" />
+    <path android:pathData="M51,58 Q54,61.5 57,58" android:strokeColor="#5A3B2A" android:strokeWidth="1.8"
+        android:strokeLineCap="round" android:strokeLineJoin="round" />
 </vector>
